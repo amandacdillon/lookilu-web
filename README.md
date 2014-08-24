@@ -1,5 +1,6 @@
 # LookiLu Marketing Site 
-# Version 0.1
+
+Version 0.1
 
 This is the code for the MVP site of
 [*LookiLu*](http://looki.lu/)
