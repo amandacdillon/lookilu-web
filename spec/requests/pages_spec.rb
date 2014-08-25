@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "Pages" do
  
+  let(:base_title) { "Lookilu" }
+
   describe "Home page" do
     
     it "should have the content 'Lookilu'" do
@@ -16,6 +18,11 @@ describe "Pages" do
       visit '/pages/about'
       expect(page).to have_content('About Lookilu')
     end
+
+    it "should have the title 'About Us'" do
+      visit '/static_pages/about'
+      expect(page).to have_title("#{base_title} | About Us")
+    end
   end
 
   describe "Contact page" do
@@ -24,6 +31,11 @@ describe "Pages" do
   		visit '/pages/contact'
   		expect(page).to have_content('Get In Touch')
   	end
+
+  	it "should have the title 'Contact Us'" do
+      visit '/static_pages/contact'
+      expect(page).to have_title("#{base_title} | Contact Us")
+    end
   end
 
 end
