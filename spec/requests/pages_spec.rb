@@ -20,7 +20,7 @@ describe "Pages" do
     end
 
     it "should have the title 'About Us'" do
-      visit '/static_pages/about'
+      visit '/pages/about'
       expect(page).to have_title("#{base_title} | About Us")
     end
   end
@@ -33,7 +33,7 @@ describe "Pages" do
   	end
 
   	it "should have the title 'Contact Us'" do
-      visit '/static_pages/contact'
+      visit '/pages/contact'
       expect(page).to have_title("#{base_title} | Contact Us")
     end
   end
