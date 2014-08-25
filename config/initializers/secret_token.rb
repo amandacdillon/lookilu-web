@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-LookiluWeb::Application.config.secret_key_base = 'fe0368ea10e1b8f98fdf639f9e49a047d97d4351853de0a3f5d6654d8a8eb605fd2ad1ca3b33ae03cfd24231fde832520edc31cdf8f27e818690d2695762de4f'
+
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+LookiluWeb::Application.config.secret_key_base = secure_token
