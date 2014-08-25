@@ -10,6 +10,21 @@ describe "Pages" do
     	visit '/'
     	expect(page).to have_content('Lookilu')
     end
+
+    it "should have the base title" do
+      visit '/'
+      expect(page).to have_title("Lookilu")
+    end
+
+    it "should not have a custom page title" do
+      visit '/'
+      expect(page).not_to have_title('| Home')
+    end
+
+    it "should not even have a pipe" do
+      visit '/'
+      expect(page).not_to have_title('Lookilu |')
+    end
   end
 
   describe "About page" do
