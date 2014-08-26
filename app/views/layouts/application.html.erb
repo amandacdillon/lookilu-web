@@ -5,38 +5,13 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-            <%= link_to "lookilu", '#', class: "navbar-brand", id: "logo" %>
-          </div>
-            <div class="navbar-collapse collapse">
-          <nav class="nav navbar-nav navbar-fixed-top" role="form">
-            <div class="container">
-              <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "About",    '#' %></li>
-                <li><%= link_to "Contact",    '#' %></li>
-                <li><%= link_to "Log in", '#' %></li>
-                <li><%= link_to "Sign up", '#' %></li>
-              </ul>
-            </div><!-- container -->
-          </nav>
-        </div><!--/.navbar-collapse -->
-      </div><!-- container -->
-    </nav>
+	<%= render 'layouts/navbar' %>
 	<div class="content">
 		<%= yield %>
+    <%= render 'layouts/footer' %>
 	</div>
 
 </body>
